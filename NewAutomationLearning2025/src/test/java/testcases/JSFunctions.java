@@ -21,5 +21,8 @@ public class JSFunctions {
         jse.executeScript("arguments[0].value='VALUE';", element);	//enter the value in inputbox
 
         jse.executeScript("arguments[0].click();", element);	//click the button
+
+
+        driver.quit();
     }
 }
