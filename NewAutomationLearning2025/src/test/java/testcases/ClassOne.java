@@ -1,5 +1,6 @@
 package testcases;
 
+import BasePackage.BaseClass;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,12 +13,21 @@ import java.time.Duration;
 
 
 
-public class ClassOne {
+public class ClassOne extends BaseClass {
+
+
+
 
     @Test
     public void methodOne() throws Throwable{
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver = new ChromeDriver();
+
+        WebDriver driver = getDriver();
+
+        driver.get("https://www.google.com");
+        System.out.println("Title: " + driver.getTitle());
+
         driver.get("http://chatgpt.com/");
 
 //        Thread.sleep(6000);

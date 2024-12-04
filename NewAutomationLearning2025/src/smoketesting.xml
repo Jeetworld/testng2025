@@ -2,6 +2,7 @@
 <suite name="MySuite">
     <parameter name="username" value="testuser" />
     <parameter name="password" value="password123" />
+    <parameter name="browser" value="chrome" />
     <test name="MyTest" parallel="classes" thread-count="2">
         <classes>
             <class name="testcases.ClassOne"/>
