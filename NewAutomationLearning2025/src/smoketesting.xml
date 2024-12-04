@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MySuite">
+    <parameter name="username" value="testuser" />
+    <parameter name="password" value="password123" />
+    <test name="MyTest" parallel="classes" thread-count="2">
+        <classes>
+            <class name="testcases.ClassOne"/>
+            <class name="testcases.ClassTwo"/>
+
+        </classes>
+    </test>
+</suite>
