@@ -15,6 +15,8 @@ import io.restassured.path.json.JsonPath;
 import java.util.Map;
 import java.util.List;
 
+import static org.hamcrest.Matchers.lessThan;
+
 
 public class WayToHandleResponse {
 
@@ -51,7 +53,7 @@ public class WayToHandleResponse {
     @Test
     public void handleWithPOJO(){
         Response response = RestAssured.get("https://jsonplaceholder.typicode.com/users/1");
-
+        response.getStatusCode();
         User user = response.as(User.class);
         System.out.println("User Name: " + user.getName());
         System.out.println("User Email: " + user.getEmail());
@@ -60,7 +62,12 @@ public class WayToHandleResponse {
 
     @Test
     public void handleJsonAsMap(){
-        Response response = RestAssured.get("https://jsonplaceholder.typicode.com/users/1");
+        Response response = (Response) RestAssured
+                .get("https://jsonplaceholder.typicode.com/users/1")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .time(lessThan(2000L));
 
         Map<String, Object> jsonMap = response.jsonPath().getMap("$");
         System.out.println("Extracted Map: " + jsonMap);

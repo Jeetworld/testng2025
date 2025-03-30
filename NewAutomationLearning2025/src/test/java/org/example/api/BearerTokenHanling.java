@@ -20,7 +20,9 @@ public class BearerTokenHanling {
         Response response = given()
                 .contentType("application/json")
                 .body("{ \"username\": \"user\", \"password\": \"pass\" }")
-                .post("/auth/login");
+                .post("/auth/login")
+                .then()
+                .extract().response();
 
         // Extract and store token
         bearerToken = response.jsonPath().getString("token");

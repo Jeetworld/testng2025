@@ -1,9 +1,22 @@
 <suite name="SeleniumTestSuite">
+    <listeners>
+        <listener class-name="org.example.utils.RetryListener"/>
+        <listener class-name="org.example.listeners.TestListener"/>
+    </listeners>
+s
+<!--    <test name="Chrome Test">-->
+<!--        <parameter name="browser" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="org.example.tests.LoginTest"/>-->
+<!--            <class name="org.example.api.ApiKeyExample"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
     <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="org.example.tests.LoginTest"/>
-            <class name="org.example.api.ApiKeyExample"/>
+            <class name="org.example.tests.RetryTest"/>
+<!--            <class name="org.example.api.ApiKeyExample"/>-->
         </classes>
     </test>
 
